@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Countdowns</title>
+</head>
+<body>
+<style type="text/css">
+
+	body{
+		background-color: lime;
+		margin:0;
+	}
+	#numbBG{
+		position: absolute;
+		bottom:0px;
+		background-color: black;
+		width: 100%;
+	}
+	h2{
+		color:white;
+		font-size: 50px;
+		text-align: center;
+		width:100%;
+	}
+
+</style>
+	<div id="numbBG">
+		<h2 id='numb'></h2>
+	</div>
+</body>
+<script type="text/javascript">
+
+	numb = document.getElementById('numb');
+
+	//y=1;
+	minutes=9;
+	seconds=59;
+	//x=59;
+
+	numb.innerHTML = minutes+":"+seconds;
+
+	function countdown(){
+
+		if (minutes>0 && seconds>9){
+				numb.innerHTML = minutes+":"+seconds;
+
+			}else if (minutes>0 && seconds<10){ 
+				numb.innerHTML = minutes+":0"+seconds;
+			}
+			else{
+				numb.innerHTML = seconds;
+			}
+
+		if (seconds>=0){seconds--;}
+		if (seconds<0 && minutes>0){minutes-=1;seconds=59}
+		if (seconds<=0 && minutes==0){seconds="";};
+
+		
+
+
+	}
+
+	setInterval(countdown,1000);
+</script>
+
+
+
+</html>
